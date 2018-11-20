@@ -40,20 +40,6 @@ void kolvo(int x){
 }
 printf("kol-vo chifer v X =  %i\n",k);
 }
-void cross(int x) {
-	
-	for(int i=0;i<x;i++){
-		for(int j=0;j<x;j++){
-			if ( (i == j) || (i == x - j - 1) )   // если главная или побочная диагональ
-		           printf("*");
-		        else
-		            printf(" ");;
-
-
-  }
- printf("\n");;
- }
-}
 void risovanie(int x,int n) {
 
   int z = 1, s, c = 0,q,n1=x*2+1;
