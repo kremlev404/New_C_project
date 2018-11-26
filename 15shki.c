@@ -65,7 +65,7 @@ void Move(Direction dir) {
 		case right:
 			if (CurX < 3)
 			{
-		 	Field[CurX][CurX] = Field[CurY][CurX + 1];
+		 	Field[CurY][CurX] = Field[CurY][CurX + 1];
 			Field[CurY][CurX + 1] = 0;
 			CurX++;
 			}
