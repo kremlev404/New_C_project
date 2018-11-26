@@ -47,10 +47,9 @@ void Move(Direction dir) {
 			Field[CurY - 1][CurX] = 0;
 			CurY--;
 			}
-			else {
+			else 
 			printf("ERROR OUT FROM BEYOND THE PLAYING FIELD \n\n");
-		    break;
-			}break;
+		   	break;
 		case down:
 			if (CurY < 3)
 			{
@@ -58,10 +57,9 @@ void Move(Direction dir) {
 			Field[CurY + 1][CurX] = 0;
 			CurY++;
 			}
-			else {
+			else 
 			printf("ERROR OUT FROM BEYOND THE PLAYING FIELD \n\n");
-		    break;
-			}break; 
+		        break; 
 		case right:
 			if (CurX < 3)
 			{
@@ -69,10 +67,9 @@ void Move(Direction dir) {
 			Field[CurY][CurX + 1] = 0;
 			CurX++;
 			}
-			else{
+			else
 			printf("ERROR OUT FROM BEYOND THE PLAYING FIELD \n\n");
-		    break;
-			}break;
+		   	break;
 		case left:
 			if (CurX > 0)
 			{
@@ -80,10 +77,9 @@ void Move(Direction dir) {
 			Field[CurY][CurX - 1] = 0;
 			CurX--;
 			} 
-			else{
+			else
 			printf("ERROR OUT FROM BEYOND THE PLAYING FIELD \n\n");
-		    break;
-			}break;
+		   	break;
 	}
 }
 
@@ -127,25 +123,22 @@ printf("Choose a direction 'w,a,s,d'\n");
 		  {
 			case 119:
 			  Move(up);
-			  coutArr();
 			  break;
 			case 115:
 			  Move(down);
-			  coutArr();
 			  break;
 			case 100:
 			  Move(right);
-			  coutArr();
 			  break;
 			case 97:
 			  Move(left);
-			  coutArr();
 			  break;
 			case 27:
 			  printf("NICE TRY\n"); 
 			  return 0;
 			  break;
 		  }
+		coutArr();
 		}
 printf(" ====Congratulations! Press Esc to exit====  ");
 return 0;
