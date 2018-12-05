@@ -119,7 +119,7 @@ bool flag = true;
  
 int main(){
 u_short _size;
-scanf(" %d", &_size); 
+scanf(" %hu", &_size); 
 u_short** Field= (u_short**)malloc(_size * sizeof(u_short*));
 for ( u_short i = 0; i < _size; i++)
 	Field[i] = (u_short*)malloc(_size * sizeof(u_short));
@@ -152,6 +152,6 @@ printf("Choose a direction 'w,a,s,d'\n");
 printf(" ====Congratulations! Press Esc to exit====  ");
 for (u_short i = 0; i < _size; i++)
 		free(Field[i]);
-	free(Field);
+free(Field);
 return 0;
 }
