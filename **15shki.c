@@ -18,7 +18,7 @@ void CreateField(u_short** received ,u_short _size) {
 	srand(time(NULL)); 
 	for (n = 0; n < _size*_size; ) { 
 		flag = false;
-		buf =  rand() % _size*_size + 1 ;
+		buf =  rand() % (_size*_size) + 1 ;
 			for (i = 0; i < n; i++) { 
 				if (arr[i] == buf) { 
 					flag = true; 
@@ -35,7 +35,7 @@ void CreateField(u_short** received ,u_short _size) {
 			received[n][i] = arr[k]; 
 			k++; 
 		} 
-	received[_size][_size] = 0;
+	received[(_size-1)][(_size-1)] = 0;
 	CurX = _size; CurY = _size;
 	free(arr);
 return; 
@@ -105,12 +105,11 @@ u_short k=1;
 bool flag = true;
 	for (u_short i = 0; i < _size; i++) {
     	for (u_short j = 0; j < _size; i++) {
-			if (received[i][j] != k % _size*_size )  
-				flag = true;
-			else {
+			if (received[i][j] != k % (_size*_size)) {
 				flag = false;
-				break ;
+				break;
 			}
+		
 		k++;	
 		}
 	}						
@@ -119,7 +118,7 @@ bool flag = true;
  
 int main(){
 u_short _size;
-scanf(" %hu", &_size); 
+scanf("%hu", &_size); 
 u_short** Field= (u_short**)malloc(_size * sizeof(u_short*));
 for ( u_short i = 0; i < _size; i++)
 	Field[i] = (u_short*)malloc(_size * sizeof(u_short));
@@ -152,6 +151,6 @@ printf("Choose a direction 'w,a,s,d'\n");
 printf(" ====Congratulations! Press Esc to exit====  ");
 for (u_short i = 0; i < _size; i++)
 		free(Field[i]);
-free(Field);
+	free(Field);
 return 0;
 }
