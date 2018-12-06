@@ -36,7 +36,7 @@ void CreateField(u_short** received ,u_short _size) {
 			k++; 
 		} 
 	received[(_size-1)][(_size-1)] = 0;
-	CurX = _size; CurY = _size;
+	CurX = (_size-1); CurY = (_size-1);
 	free(arr);
 return; 
 } 
@@ -118,14 +118,15 @@ bool flag = true;
  
 int main(){
 u_short _size;
+printf("Enter Field Size: ");
 scanf("%hu", &_size); 
 u_short** Field= (u_short**)malloc(_size * sizeof(u_short*));
 for ( u_short i = 0; i < _size; i++)
 	Field[i] = (u_short*)malloc(_size * sizeof(u_short));
 CreateField(Field, _size);
 coutArr(Field, _size); 
-printf("Choose a direction 'w,a,s,d'\n");
 		while(!total(Field, _size)) {
+		printf("Choose a direction 'w,a,s,d'\n");
 		char key = getchar();
 		 switch (key)
 		  {
