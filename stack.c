@@ -44,13 +44,13 @@ int i;
 printf("%c", line);
 reset(&stack);
 while(line[i]!='\0'){
-	if(!full(&stack))
+	if(!is_Full(&stack))
 		push(line[i++],&stack);
 	else i++;
 }
-if(!empty(&stack))
+if(!is_Empty(&stack))
 	printf("%c\n", &stack);
-while(!empty(&stack))
+while(!is_Empty(&stack))
 	printf("%c\n", &stack);
 return 0;
 } 
