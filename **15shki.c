@@ -12,13 +12,13 @@ u_short CurX, CurY;
 
 //Создание игровой площадки 
 void CreateField(u_short** received ,u_short _size) {
-	u_short  n, i, buf, k = 0; 
+	u_short  n, i, buf, k = 0,rand_size= ((_size*_size)-1); 
 	u_short* arr = (u_short*)malloc((_size*_size) * sizeof(u_short));
 	bool flag = false ;
 	srand(time(NULL)); 
-	for (n = 0; n < _size*_size; ) { 
+	for (n = 0; n < (_size*_size); ) { 
 		flag = false;
-		buf =  rand() % (_size*_size) + 1 ;
+		buf = (1 + rand() % (rand_size +1));
 			for (i = 0; i < n; i++) { 
 				if (arr[i] == buf) { 
 					flag = true; 
