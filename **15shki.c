@@ -104,7 +104,7 @@ bool total(u_short** received, u_short _size) {
 u_short k=1;
 bool flag = true;
 	for (u_short i = 0; i < _size; i++) {
-    	for (u_short j = 0; j < _size; i++) {
+    	for (u_short j = 0; j < _size; j++) {
 			if (received[i][j] != k % (_size*_size)) {
 				flag = false;
 				break;
