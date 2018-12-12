@@ -1,0 +1,99 @@
+#include<stdlib.h> 
+#include<stdio.h>
+#include<stdbool.h>
+#include<string.h>
+#define Arr_SIZE 256
+
+struct Stack{
+    int top;
+    char arr[Arr_SIZE];
+} curStack;
+
+void initialization() {
+    curStack.top = -1;
+return;
+}
+
+bool is_Full() {
+    if(curStack.top == Arr_SIZE-1)
+        return true;
+    else{
+        return false;
+    }
+}
+bool is_Empty(){
+    if(curStack.top == -1)
+        return true;
+    else{
+        return false;
+    }
+}
+void push(char item);
+
+void pop();
+
+char gettop();
+
+bool Are_in_Pair(char left,char right) {
+	if(left == '{' && right == '}') 
+		return true;
+	if(left == '(' && right == ')') 
+		return true;
+	else if(left == '[' && right == ']') 
+		return true;
+
+	
+return false;
+}
+int main() {
+   	int i, length=0;
+ 		char Array[Arr_SIZE], ch;
+		initialization();
+		printf("Enter your string: ");
+    gets(Array);
+		length = strlen(Array);
+		for(i=0;i<length;i++){
+        if(Array[i] == '(' || Array[i] == '{' || Array[i] == '['){
+                push(Array[i]);
+        }
+				else if(Array[i] == ')' || Array[i] == '}' || Array[i] == ']'){
+            ch = gettop();
+           	if(is_Empty() || !Are_in_Pair(gettop(),Array[i])){
+                printf("\n  ERROR Here %d \n" , i + 1);
+                return 0;
+            }
+						else{
+                pop();
+            }
+        }
+    }
+    if(is_Empty())
+        printf("\n U'are right!");
+		else
+        printf("\n U've got some mistakes");
+return 0;
+}
+
+void push(char item) {
+    if(is_Full())
+            printf("error, stack overflow");
+    else{
+        curStack.top++;
+        curStack.arr[curStack.top] = item;
+    }
+return;
+}
+
+void pop() {
+    if(is_Empty()){
+        printf("error, Stack is empty");
+    }
+		else{
+        curStack.top--;
+    }
+return;
+}
+
+char gettop() {
+    return curStack.arr[curStack.top];
+}
