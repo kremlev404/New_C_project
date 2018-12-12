@@ -81,12 +81,11 @@ return;
 }
 
 void pop() {
-    if(is_Empty()){
+    if(is_Empty())
         printf("error, Stack is empty");
-    }
 		else
         curStack.top--;
-    }
+    
 return;
 }
 
