@@ -17,16 +17,14 @@ return;
 bool is_Full() {
     if(curStack.top == Arr_SIZE-1)
         return true;
-    else{
+    else
         return false;
-    }
 }
 bool is_Empty(){
     if(curStack.top == -1)
         return true;
-    else{
+    else
         return false;
-    }
 }
 void push(char item);
 
@@ -37,12 +35,10 @@ char gettop();
 bool Are_in_Pair(char left,char right) {
 	if(left == '{' && right == '}') 
 		return true;
-	if(left == '(' && right == ')') 
+	else if(left == '(' && right == ')') 
 		return true;
 	else if(left == '[' && right == ']') 
 		return true;
-
-	
 return false;
 }
 int main() {
