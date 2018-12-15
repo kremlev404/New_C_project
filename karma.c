@@ -44,7 +44,7 @@ return;
 }
 
 int main(){  
-	u_int n, tp, i, i_id; // number of users
+	u_int n, tp, i, i_id; 
 	srand(time(NULL));
 	printf("Enter number of users: ");
 	scanf("%u", &n);
