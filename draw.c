@@ -48,6 +48,7 @@ void Filled_Rhomb(int n, char sym){
     		printf("\n"); 
 		    middle+=2;
 		}
+		
  		middle-=4;
  		for(i=1;i<n;i++){
 
