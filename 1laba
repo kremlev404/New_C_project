@@ -1,0 +1,64 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <stdio.h>
+#include <cstdlib>
+#define keyWordsSize 2
+using namespace std;
+
+
+int main(int argc, char** argv) {
+    if (argc < 2){
+        cout << "Please Use : ./SoftName file [...]" << endl;
+        return 0;
+    }
+    
+    string my_string;
+    ifstream fN(argv[1]);
+    char *keyWords[keyWordsSize] = {"int","float"};
+    int arr_i[27];
+  	int k=0,i=0,j=0;
+  	int count_of_repeat=0;
+	    if (fN.is_open()) {
+	        while (!fN.eof())
+	        {
+	            getline(fN, my_string);
+	            if (my_string.length() > 80) 
+					my_string.erase(80, my_string.length());
+				for(j = 0;(keyWordsSize-1);j++){ //ищем индексы вхождений подстрок 
+				 for ( i = my_string.find(keyWord[j], i++); i != string::npos; i = my_string.find(keyWord[j], i + 1)){
+						arr_i[k] = i;
+						k++;
+					}
+
+				}
+				int count_of_repeat = i;
+				i=0;
+				while(!i==my_string.length()){ // вывод 
+					
+						if(arr_i[k]!=0){
+							while (!my_string[i]==' '){
+								cout << "\033[37;1m\033[40m" << my_string[i]; 
+								i++;
+							}
+						k++;
+						}	
+						else{
+							while (!my_string[i] ==' '){
+								cout << "\033[37m\033[40m" << my_string[i]; 
+								i++;
+							}
+						
+						}
+					
+
+
+				}
+				if(!fN.eof())
+	                cout<<endl;
+	        }
+	    }
+	else
+        cout << argv[1] << ": No such file or directory" << endl;
+    return 0;
+}
